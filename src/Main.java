@@ -28,9 +28,9 @@ public class Main {
         // Set initial position
         int startPosition = cells.length / 2;
 
-        cells[startPosition] = 1;
-        cells[startPosition + 1] = 1;
-        cells[startPosition + 2] = 0;
+        cells[startPosition - 2] = 1;
+        cells[startPosition - 1] = 1;
+        cells[startPosition] = 0;
 
         // Print initial stare of the tape
         System.out.println("start position: " + startPosition);

@@ -8,8 +8,8 @@ public class Row {
     static final int ONE = 1;
 
     // next instuction
-    static final int LEFT = -1;
-    static final int RIGHT = 1;
+    static final int LEFT = 1;
+    static final int RIGHT = -1;
 
     private int writeInst;
     private int nextInst;
