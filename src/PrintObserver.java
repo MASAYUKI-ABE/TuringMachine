@@ -1,5 +1,6 @@
-import java.util.Iterator;
-
+/**
+ * PrintObserver class print tape.
+ */
 public class PrintObserver implements Observer {
     @Override
     public void update(Machine machine) {

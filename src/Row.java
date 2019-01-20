@@ -1,8 +1,6 @@
 /**
- * Stateの1行を表すクラス
+ * Row object class.
  */
-
-
 public class Row {
     // Symbol
     static final int BLANK = -1;

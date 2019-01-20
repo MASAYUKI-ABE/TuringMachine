@@ -1,6 +1,6 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-
+/**
+ * TuringMachine object class.
+ */
 public class TuringMachine extends Machine{
     private State currentState;
     private int currentPosition;
@@ -8,9 +8,8 @@ public class TuringMachine extends Machine{
     private int[] cells;
 
     /**
-     * コンストラクタ
-     * StateTableを読み込む
-     * テープは50マスと想定
+     * Constructor
+     * read entry StateTable
      */
 
     public TuringMachine(int[] cells, int startPosition, State entryState) {
@@ -20,21 +19,21 @@ public class TuringMachine extends Machine{
     }
 
     /**
-     * テープの読み込み処理
+     * Read the symbol on the square
      */
     public void read() {
         int currentCell = (int) cells[currentPosition];
         currentRow = currentState.getRow(currentCell);
     }
     /**
-     * テープの書き込み処理
+     * Write the symbol on the cell
      */
     public void write() {
         cells[currentPosition] = currentRow.getWriteInst();
     }
 
     /**
-     * テープの移動処理
+     * Move the tape(cells)
      */
     public void move() {
         int nextInst = currentRow.getNextInst();
@@ -42,7 +41,7 @@ public class TuringMachine extends Machine{
         currentState = currentRow.getNextState();
     }
     /**
-     * チューリングマシンの施行実行
+     * Start TuringMachine
      */
     public void execute() {
         while (currentState.getStateNo() != -1) {

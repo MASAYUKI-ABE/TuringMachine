@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 
+/**
+ * Machine object class.
+ */
 public abstract class Machine {
     private ArrayList observers = new ArrayList();
 

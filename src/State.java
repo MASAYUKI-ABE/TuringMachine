@@ -1,10 +1,9 @@
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Stateを表すクラス。複数のRowクラスをsymbol分持つ。
+ * StateTable object class.
+ * This object has three Rows.
  */
-
 public class State {
     private int stateNo = 0;
     HashMap<Integer, Row> rows = new HashMap();

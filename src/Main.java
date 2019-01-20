@@ -4,12 +4,13 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // Stateを作成
+        // HACK: Read files or make GUI
+        // Create StateTable
         State stopState = new State(-1);
         State state0 = new State(0);
         State state1 = new State(1);
 
-        // Stateにrowを追加
+        // Add rows to State
         state0.addRow(Row.BLANK, Row.createRow(Row.BLANK, Row.LEFT, state1));
         state0.addRow(Row.ZERO, Row.createRow(Row.ONE, Row.RIGHT, state1));
         state0.addRow(Row.ONE, Row.createRow(Row.ZERO, Row.RIGHT, state0));
@@ -20,24 +21,23 @@ public class Main {
         System.out.println(state0.toString());
         System.out.println(state1.toString());
 
-        // テープ(cells)を用意
-        // 110
+        // Create a tape(cells): 110
         int[] cells = new int[50];
         Arrays.fill(cells, -1);
 
-        // テープのスタート位置を指定
+        // Set initial position
         int startPosition = cells.length / 2;
 
         cells[startPosition] = 1;
         cells[startPosition + 1] = 1;
         cells[startPosition + 2] = 0;
 
-        // 初期状態を表示
+        // Print initial stare of the tape
         System.out.println("start position: " + startPosition);
         System.out.println("initial state:");
         for (int cell: cells) {
             if (cell == -1) {
-                // blankの場合はスペース
+                // if blank, print a space
                 System.out.print(" ");
             } else {
                 System.out.print(cell);
@@ -46,18 +46,18 @@ public class Main {
         }
         System.out.println("\n");
 
-        // TuringMachineをインスタンス化
+        // Generate a instance of TuringMachine
         Machine machine = new TuringMachine(cells, startPosition, state0);
 
-        // Observerをインスタンス化
+        // Generate a instance of PrintObserver
         Observer observer = new PrintObserver();
 
-        // TuringMachineにObserverを登録
+        // Add observer
         machine.addObserver(observer);
 
         System.out.println("======start======");
 
-        // TuringMachineを動かす
+        // Start TuringMachine
         machine.execute();
 
         System.out.println("======end======");
